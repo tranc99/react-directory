@@ -1,29 +1,13 @@
 import React, { Component } from 'react';
 import Table from './Table'
+import Form from './Form'
 
 const name = 'Tania'
 
 class App extends Component {
 
   state = {
-    characters: [
-      {
-        name: 'Nancy',
-        job: 'Janitor'
-      },
-      {
-         name: 'Mac',
-         job: 'Bouncer'
-      },
-      {
-         name: 'Jaime',
-         job: 'Aspiring actress'
-       },
-      {
-         name: 'Denise',
-         job: 'Bartender'
-      }
-    ]
+    characters: []
   }
 
   initialCharacters = [
@@ -47,6 +31,13 @@ class App extends Component {
 
   addStateMagic = () => {
     this.setState({characters: this.initialCharacters})
+  }
+
+  handleSubmit = (character) => {
+    const newState = this.state.characters
+    newState.push(character)
+    this.setState({characters: newState})
+    // this.setState({characters: [...this.state.characters, character]})
   }
 
   removeCharacter = index => {
@@ -75,6 +66,9 @@ class App extends Component {
             removeCharacter={this.removeCharacter}
             addStateMagic={this.addStateMagic}
           />
+        </div>
+        <div className="container">
+          <Form handleSubmit={this.handleSubmit} />
         </div>
       </React.Fragment>
     )
