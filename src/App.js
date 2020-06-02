@@ -26,6 +26,29 @@ class App extends Component {
     ]
   }
 
+  initialCharacters = [
+    {
+      name: 'Nancy',
+      job: 'Janitor'
+    },
+    {
+       name: 'Mac',
+       job: 'Bouncer'
+    },
+    {
+       name: 'Jaime',
+       job: 'Aspiring actress'
+     },
+    {
+       name: 'Denise',
+       job: 'Bartender'
+    }
+  ]
+
+  addStateMagic = () => {
+    this.setState({characters: this.initialCharacters})
+  }
+
   removeCharacter = index => {
     const { characters } = this.state
 
@@ -47,7 +70,11 @@ class App extends Component {
           <p>View directory of active professionals</p>
         </div>
         <div className="container">
-          <Table characterData={characters} removeCharacter={this.removeCharacter} />
+          <Table
+            characterData={characters}
+            removeCharacter={this.removeCharacter}
+            addStateMagic={this.addStateMagic}
+          />
         </div>
       </React.Fragment>
     )
