@@ -47,7 +47,7 @@ class App extends Component {
           <p>View directory of active professionals</p>
         </div>
         <div className="container">
-          <Table characterData={characters} />
+          <Table characterData={characters} removeCharacter={this.removeCharacter} />
         </div>
       </React.Fragment>
     )
